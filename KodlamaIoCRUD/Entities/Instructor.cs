@@ -9,6 +9,5 @@ namespace KodlamaIoCRUD.Entities
     public class Instructor : Baseentity
     {
         public string Surname { get; set; }
-        public ICollection<Course> Courses { get; set; }
     }
 }

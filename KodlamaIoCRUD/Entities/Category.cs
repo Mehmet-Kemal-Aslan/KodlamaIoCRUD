@@ -8,6 +8,5 @@ namespace KodlamaIoCRUD.Entities
 {
     public class Category : Baseentity
     {
-        public ICollection<Course> Courses { get; set;}
     }
 }
