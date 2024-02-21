@@ -30,7 +30,14 @@ namespace KodlamaIoCRUD.DataAccess.Concrete
         public void Delete(int id)
         {
             Course courseToDelete = _courses.FirstOrDefault(c => c.Id == id);
-            _courses.Remove(courseToDelete);
+            if (courseToDelete != null)
+            {
+                _courses.Remove(courseToDelete);
+            }
+            else
+            {
+                Console.WriteLine("Böyle bir kurs yok.");
+            }
         }
 
         public List<Course> GetAll()

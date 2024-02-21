@@ -17,34 +17,61 @@ namespace KodlamaIoCRUD.DataAccess.Concrete
 
             _instructors = new List<Instructor>
             {
-                new Instructor { Id = 1, Name = "Nur", Surname = "Vural" },
-                new Instructor { Id = 2, Name = "Tuba", Surname = "Günaçgün" },
-                new Instructor { Id = 3, Name = "Emine", Surname = "Yılmaz" }
+                new Instructor { Id = 1, Name = "Mehmet", Surname = "Aslan" },
+                new Instructor { Id = 2, Name = "Gizem", Surname = "Güneş" },
+                new Instructor { Id = 3, Name = "Pelin", Surname = "Coşkun" }
             };
         }
-        public void Add(Instructor entity)
+        public void Add(Instructor instructor)
         {
-            throw new NotImplementedException();
+            _instructors.Add(instructor);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Instructor instructorToDelte = _instructors.FirstOrDefault(x => x.Id == id);
+            if(instructorToDelte != null)
+            {
+                _instructors.Remove(instructorToDelte);
+            }
+            else
+            {
+                Console.WriteLine("Böyle bir eğitmen yok.");
+            }
+            
         }
 
         public List<Instructor> GetAll()
         {
-            throw new NotImplementedException();
+            return _instructors;
         }
 
         public Instructor GetById(int id)
         {
-            throw new NotImplementedException();
+            Instructor instructor = _instructors.FirstOrDefault(x => x.Id == id);
+            if (instructor != null)
+            {
+                Console.WriteLine("Eğitmen adı: " + instructor.Name + "Soyadı" + instructor.Surname);
+            }
+            else
+            {
+                Console.WriteLine("Böyle bir eğitmen yok.");
+            }
+            return _instructors.FirstOrDefault(c => c.Id == id);
         }
 
-        public void Update(Instructor entity)
+        public void Update(Instructor instructor)
         {
-            throw new NotImplementedException();
+            Instructor instructorToUpdate = _instructors.FirstOrDefault(x => x.Id == instructor.Id);
+            if (instructor != null)
+            {
+                instructorToUpdate.Name = instructor.Name;
+                instructorToUpdate.Surname = instructor.Surname;
+            }
+            else
+            {
+                Console.WriteLine("Böyle bir eğitmen yok.");
+            }
         }
     }
 }

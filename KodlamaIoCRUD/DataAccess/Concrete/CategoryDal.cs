@@ -24,27 +24,56 @@ namespace KodlamaIoCRUD.DataAccess.Concrete
         }
         public void Add(Category entity)
         {
-            throw new NotImplementedException();
+            _categories.Add(entity);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Category category = _categories.FirstOrDefault(c => c.Id == id);
+            if (category != null)
+            {
+                _categories.Remove(category);
+            }
+            else
+            {
+                Console.WriteLine("Böyle bir kategori yok.");
+            }
         }
 
         public List<Category> GetAll()
         {
-            throw new NotImplementedException();
+            foreach (var category in _categories) 
+            {
+                Console.WriteLine($"{category.Name}");
+            }
+            return _categories;
         }
 
         public Category GetById(int id)
         {
-            throw new NotImplementedException();
+            Category category = _categories.FirstOrDefault(c => c.Id == id);
+            if(category != null)
+            {
+                Console.WriteLine("Kurs adı: " + category.Name);
+            }
+            else
+            {
+                Console.WriteLine("Böyle bir kategori yok.");
+            }
+            return _categories.FirstOrDefault(c => c.Id == id);
         }
 
-        public void Update(Category entity)
+        public void Update(Category newCategory)
         {
-            throw new NotImplementedException();
+            Category categoryToUpdate = _categories.FirstOrDefault(c => c.Id == newCategory.Id);
+            if (categoryToUpdate != null)
+            {
+                categoryToUpdate.Name = newCategory.Name;
+            }
+            else
+            {
+                Console.WriteLine("Böyle bir kategori yok.");
+            }
         }
     }
 }

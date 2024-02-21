@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace KodlamaIoCRUD.Business.Concrete
 {
-    public class CourseService : GenericService<Course>, ICourseService
+    public class InstructorService : GenericService<Instructor>, IInstructorService
     {
-        public CourseService(IGenericDal<Course> genericDal) : base(genericDal)
+        public InstructorService(IGenericDal<Instructor> genericDal) : base(genericDal)
         {
         }
     }

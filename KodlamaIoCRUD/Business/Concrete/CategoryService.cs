@@ -1,5 +1,6 @@
 ﻿using KodlamaIoCRUD.Business.Abstract;
 using KodlamaIoCRUD.DataAccess.Abstract;
+using KodlamaIoCRUD.DataAccess.Concrete;
 using KodlamaIoCRUD.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace KodlamaIoCRUD.Business.Concrete
 {
-    public class CourseService : GenericService<Course>, ICourseService
+    public class CategoryService : GenericService<Category>, ICategoryService
     {
-        public CourseService(IGenericDal<Course> genericDal) : base(genericDal)
+        public CategoryService(IGenericDal<Category> genericDal) : base(genericDal)
         {
         }
     }

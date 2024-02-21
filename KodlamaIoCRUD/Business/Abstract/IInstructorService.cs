@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KodlamaIoCRUD.Business.Abstract
 {
-    public interface ICourseService : IGenericService<Course>
+    public interface IInstructorService : IGenericService<Instructor>
     {
     }
 }

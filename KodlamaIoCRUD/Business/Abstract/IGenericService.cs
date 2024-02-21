@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace KodlamaIoCRUD.Business.Abstract
 {
-    public interface ICourseService : IGenericService<Course>
+    public interface IGenericService<T> where T : class
     {
+        List<T> GetAll();
+        T GetById(int id);
+        void Add(T entity);
+        void Update(T entity);
+        void Delete(int id);
     }
 }
